@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>TODO supply a title</title>
+        <title>Facilita Relatório</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="estilo.css" rel="stylesheet">
         <script type="text/javascript" src="capDeInfo.js"></script>
@@ -55,7 +55,6 @@
                 <div class="col-lg-4"></div>
             </div>
         </div>
-
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
