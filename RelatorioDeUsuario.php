@@ -18,7 +18,7 @@ if (isset($usuario['matricula'])){
 }  else {
    $quantVotas =  getQuantLinhasTabela("ArrayDeUsuario");    
 }
-
+//Valendo
 //print_r($usuario);
 
 
