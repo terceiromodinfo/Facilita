@@ -67,7 +67,7 @@ $result = $_SESSION['ArrayDeDados'];
                         <div class="col-md-4">
                             
                             <form action="CodigoFonts.php" method="POST" enctype="multipart/form-data">
-                                <input type="text" class="form-control" name="nomeDaMatricula">
+                                <input type="text" class="form-control" name="nomeDaMatricula"><br>
                                 <input type="submit" class="btn btn-default" value="Prosseguir" name="pesquisaMatricula">
                             </form>
                             
@@ -93,7 +93,7 @@ $result = $_SESSION['ArrayDeDados'];
                             
                                         <form action="ModoDePesquisa.php" method="POST" enctype="multipart/form-data">
                                             <input type="submit" class='btn btn-default btn-lg btn-block' value="Matricula" name="matricula">
-                                        </form>
+                                        </form><br>
                                     
                                         <form action="CodigoFonts.php" method="POST" enctype="multipart/form-data">
                                             <input type="submit" class='btn btn-default btn-lg btn-block' value="Curso" name="curso">

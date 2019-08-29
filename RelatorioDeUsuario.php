@@ -1,8 +1,15 @@
 <?php
 include './Funcoes.php';
-include './mostra_erros.php';
+//include './mostra_erros.php';
 $post = post();
-$usuario = $_SESSION['ResultadoDeUsuario'];
+$get = get();
+
+if (isset($get['nomeUsuario'])) {
+    $usuario = unserialize($get['nomeUsuario']);
+}  else {
+    $usuario = $_SESSION['ResultadoDeUsuario'];
+}
+
 $UerExistSimNao = $_SESSION['TRUE_FALSE'];
 $quantVotas = 0;
 

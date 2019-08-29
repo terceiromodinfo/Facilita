@@ -119,7 +119,7 @@ if (isset($get['nomeCurso'])) {
     unset($get['nomeCurso']);
     header("location:ListaModoDePesquisa.php");
 }
-
+/*
 if (isset($get['nomeUsuario'])) {
     $Arrays = $_SESSION['ArrayDeDados'];
     $matriculaDeUsuario = $get['nomeUsuario'];
@@ -133,6 +133,8 @@ if (isset($get['nomeUsuario'])) {
     }
     
 }
+ * 
+ */
 
 
 if (isset($get['sair'])) {

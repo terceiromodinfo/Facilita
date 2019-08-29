@@ -57,24 +57,20 @@ $ModoPesquisa = $_SESSION['ModoDeListaDePesquisa'];
                     ?>
                     <form action="RelatorioDeUsuario.php" method="POST" enctype="multipart/form-data">                            
                             <input type="submit" class="btn btn-info btn-lg btn-block" value="Gerar pra Todos" name="GerarTodos">
-                    </form>
+                    </form><br>
                     
                         <?php
                     }
 
                     switch ($ModoPesquisa) {
                         case "Curso":
-                            for ($a = 0; $a < count($ArraysDeCurso); $a++) {
-                                print "<table><tr>";
-                                print "<td class ''><a class='btn btn-default btn-lg btn-block' href='CodigoFonts.php?nomeCurso=" . $ArraysDeCurso[$a] . "'>" . $ArraysDeCurso[$a] . "</a></td><br/>";
-                                print "</tr></table>";
+                            for ($a = 0; $a < count($ArraysDeCurso); $a++) {                                
+                                print "<a class='btn btn-default btn-lg btn-block' href='CodigoFonts.php?nomeCurso=" . $ArraysDeCurso[$a] . "'>" . $ArraysDeCurso[$a] . "</a><br>";                          
                             }
                             break;
                         case "Usuario":
                             for ($b = 0; $b < count($ArraysDeUsuario); $b++) {
-                                print "<table><tr>";
-                                print "<td><a class='btn btn-default btn-lg btn-block' href='CodigoFonts.php?nomeUsuario=" . $ArraysDeUsuario[$b]['matricula'] . "'>" . $ArraysDeUsuario[$b]['nome'] . "</a></td><br/>";
-                                print "</tr></table>";
+                                print "<a class='btn btn-default btn-lg btn-block' href='RelatorioDeUsuario.php?nomeUsuario=" . serialize($ArraysDeUsuario[$b]). "'>" . $ArraysDeUsuario[$b]['nome'] . "</a><br>";                                
                             }
                             break;
                     }
