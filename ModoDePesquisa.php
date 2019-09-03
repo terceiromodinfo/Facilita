@@ -18,6 +18,7 @@ $result = $_SESSION['ArrayDeDados'];
         <script type="text/javascript" src="capDeInfo.js"></script>
     </head>
     <body>
+        <!-- Cabeçario da pagina-->
         <nav class="navbar navbar-default navbar-fixed-top corFundoAzul">
             <div class="container">
                 <div class="navbar-header">
@@ -90,7 +91,7 @@ $result = $_SESSION['ArrayDeDados'];
 
                         <div class="col-md-4"></div>
                         <div class="col-md-4">   
-                            
+                            <!-- Exibira na pagina uma opção a pesquisa por matricula ou por cursos-->
                                         <form action="ModoDePesquisa.php" method="POST" enctype="multipart/form-data">
                                             <input type="submit" class='btn btn-default btn-lg btn-block' value="Matricula" name="matricula">
                                         </form><br>

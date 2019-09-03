@@ -1,6 +1,7 @@
 <?php
 
 include './Funcoes.php';
+//Função atibuida e uma variavel para o uso do metodo POST e GET
 $post = post();
 $get = get();
 
@@ -49,12 +50,24 @@ if (isset($post['LerCsv'])) {
     unset($post['LerCsv']);
     header("location:ModoDePesquisa.php");
 }
-// Relotorio enviado por matricula
+/*
+ * Script retorna um Aluno que será exibido no relatorio
+ */
 if (isset($post['pesquisaMatricula'])) {
     $matricula = $post['nomeDaMatricula'];
     
     $Arrays = $_SESSION['ArrayDeDados'];
+    $n = array_search($matricula, array_column($Arrays, 'matricula'));
     
+    if ($n === false) {
+
+    }  else {
+        $_SESSION['ResultadoDeUsuario'] = $Arrays[$n];
+    }
+    
+    unset($post['pesquisaMatricula']);            
+    header("location:RelatorioDeUsuario.php");
+    /*
     for ($a = 0; $a < getQuantLinhasTabela("ArrayDeDados"); $a++) {
         if ($matricula === $Arrays[$a]["matricula"]) {
             //Variavel global para saber se o usuario existe
@@ -70,9 +83,13 @@ if (isset($post['pesquisaMatricula'])) {
             header("location:RelatorioDeUsuario.php");
         }
     }
+     * 
+     */
     
 }
-
+/*
+ * Script retorna todos cursos existentes 
+ */
 if (isset($post['curso'])) {
     $Arrays = $_SESSION['ArrayDeDados'];
     $ArraysDeCurso = [];
@@ -102,7 +119,9 @@ if (isset($post['curso'])) {
     header("location:ListaModoDePesquisa.php");
 }
 
-
+/*
+ * Script retorna todos alunos do curso expecificado
+ */
 if (isset($get['nomeCurso'])) {
     $Arrays = $_SESSION['ArrayDeDados'];
     $nomeCurso = $get['nomeCurso'];
@@ -136,7 +155,9 @@ if (isset($get['nomeUsuario'])) {
  * 
  */
 
-
+/*
+ * Limpa todos dados existente na variavel global $_SESSION['ResultadoDeUsuario']
+ */
 if (isset($get['sair'])) {
     $_SESSION['TRUE_FALSE'] = NULL;
     $_SESSION['ResultadoDeUsuario'] = NULL;  

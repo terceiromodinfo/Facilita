@@ -6,6 +6,7 @@ $get = get();
 
 if (isset($get['nomeUsuario'])) {
     $usuario = unserialize($get['nomeUsuario']);
+    unset($get['nomeUsuario']);
 }  else {
     $usuario = $_SESSION['ResultadoDeUsuario'];
 }

@@ -19,6 +19,8 @@ $ModoPesquisa = $_SESSION['ModoDeListaDePesquisa'];
         <script type="text/javascript" src="capDeInfo.js"></script>
     </head>
     <body>
+        <!--!-->
+        <!-- Cabeçario da pagina-->
         <nav class="navbar navbar-default navbar-fixed-top corFundoAzul">
             <div class="container">
                 <div class="navbar-header">
@@ -61,7 +63,11 @@ $ModoPesquisa = $_SESSION['ModoDeListaDePesquisa'];
                     
                         <?php
                     }
-
+                    /*
+                     * Script exibe na pagina do usuario qual pesquisa ele está a faser.
+                     * Exemplo exibira uma lista de curso se está pesquisando por cursos
+                     * ou exibe uma lista de alunos
+                     */
                     switch ($ModoPesquisa) {
                         case "Curso":
                             for ($a = 0; $a < count($ArraysDeCurso); $a++) {                                
