@@ -9,8 +9,22 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="estilo.css" rel="stylesheet">
         <script type="text/javascript" src="capDeInfo.js"></script>
+        <style>
+    .load {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    color: blue;
+ }
+        </style>
     </head>
     <body>
+        <div class="load"><img src="img/preloader.gif"></div>
+        
+        
+        
         <div class="container">
             <div class="row"> 
         <nav class="navbar navbar-default navbar-fixed-top corFundoAzul">
@@ -53,13 +67,18 @@
                     </div>
                 </div>
                 <div class="col-lg-4"></div>
+                
             </div>
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        
         <script src="js/bootstrap.min.js"></script>
+        <script>
+    //código usando DOM (JS Puro)
+    document.addEventListener("DOMContentLoaded", function(event) { 
+    var estilo = document.getElementsByClassName('load');
+    estilo[0].style.visibility = "hidden";
+ });
+ </script>
     </body>
 </html>
-<?php
-phpinfo();
-?>

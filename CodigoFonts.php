@@ -1,5 +1,5 @@
 <?php
-
+include './loading.php';
 include './Funcoes.php';
 //Função atibuida e uma variavel para o uso do metodo POST e GET
 $post = post();
@@ -15,20 +15,21 @@ if (isset($post['LerCsv'])) {
      * Função conversão para json
      */
     function csvtojson($file, $delimiter) {
+        
         if (($handle = fopen($file, "r")) === false) {
             die("can't open the file.");
         }
 
         $csv_headers = fgetcsv($handle, 4000, $delimiter);
         $csv_json = array();
-
+        
         while ($row = fgetcsv($handle, 4000, $delimiter)) {
             $csv_json[] = array_combine($csv_headers, $row);
         }
-
+        
         fclose($handle);
-
-        return json_encode($csv_json);
+        return $csv_json;
+        //return json_encode($csv_json);
     }
     /*
      * Recebe os valores do formulario e passa para função,
@@ -38,15 +39,16 @@ if (isset($post['LerCsv'])) {
     $arquivo = $_FILES["file"]["tmp_name"];
     $nome = $_FILES["file"]["name"];
 
-    $jsonresult = csvtojson($arquivo, ",");
-    
+    $ArraysDeDados = csvtojson($arquivo, ",");
+    //print_r($jsonresult);
     // Converte de json para um array 
     
-    $ArraysDeDados = json_decode($jsonresult, true);
+    //$ArraysDeDados = json_decode($jsonresult, true);
     
     //Passa os dados para uma variavel global
     
     $_SESSION['ArrayDeDados'] = $ArraysDeDados;
+    
     unset($post['LerCsv']);
     header("location:ModoDePesquisa.php");
 }
@@ -168,4 +170,3 @@ if (isset($get['sair'])) {
 
 //print$obj[0]["matricula"];
 ?>
-
