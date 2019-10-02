@@ -1,2 +1,3 @@
 <?php
-exit(header("location:/Front_End/index.php));
+header("location:Front_End/index.php");
+
