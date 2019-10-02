@@ -67,6 +67,6 @@ Autor: Lucas Alberico de Sousa
 
         <script type="text/javascript" src="bootstrap/jquery/jquery.js"></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="bootstrap/js/script.js"></script>
+        <script src="bootstrap/js/Script.js"></script>
     </body>
 </html>
