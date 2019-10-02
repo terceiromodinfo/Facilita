@@ -1,0 +1,80 @@
+.Invisivel{
+    display: none;
+}
+.CirculoVermelho{
+    width:100px;
+    height:100px;
+    z-index:5;
+    border-radius:50%;
+    background: tomato;
+}
+.CirculoVermelhoGrande{
+    width:250px;
+    height:250px;
+    z-index:5;
+    border-radius:50%;
+    background: tomato;
+    margin: 10px;
+}
+.CirculoAzulGrande{
+    width:250px;
+    height:250px;
+    z-index:5;
+    border-radius:50%;
+    background: blue;
+    margin: 10px;
+}
+.quadradoGrande{
+    width:400px;
+    height:300px;
+    z-index:5;
+    background: tomato;
+    margin: 10px;
+}
+.quadradoSuperGrande{
+    width:800px;
+    height:500px;
+    z-index:5;
+    background: tomato;
+    margin: 10px;
+}
+.LetraBranca{
+    color: white;
+    font-family: Cooper Black;
+}
+div.central h1{
+    text-align: center;
+    margin-top: -10px;
+}
+.BackgroundCinza{
+    background: lightgray;
+    padding: 10px;
+}
+.BackgroundCBranco{
+    background: white;
+    padding: 10px;
+}
+.BackgroundAzul{
+    background: blue;
+    padding: 10px;
+}
+.centralTodo{
+    text-align: center;
+}
+.LetrasGrandes{
+    padding-top: 20%;
+    text-align: center;
+    color: white; 
+    font-family: Cooper Black;
+    font-size: 70px;
+}
+.LetrasGPequena{
+    text-align: center;
+    color: white; 
+    font-family: Cooper Black;
+    font-size: 20px;
+}
+.titulo{
+    font-family: Cooper Black;
+   
+}
