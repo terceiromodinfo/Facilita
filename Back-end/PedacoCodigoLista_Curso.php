@@ -1,11 +1,6 @@
 <?php
 include './Funcoes.php';
 
-
-
-print "<pre>";
-print_r($_SESSION['ArrayDeDados2']);
-print "</pre>";
 ?>
 <html>
     <head>
