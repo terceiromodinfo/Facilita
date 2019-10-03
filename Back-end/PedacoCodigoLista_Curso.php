@@ -1,66 +1,35 @@
 <?php
 include './Funcoes.php';
-/*
- * Excript de exibição de uma lista cursos
- */
-/*
-$gravi = array(
-    "Informações_do_Aluno" => array(
-        "Nome" => "",
-        "Turma" => "",
-        "Idade" => "",
-        "Cidade" => "",
-        "Repetente" => "",
-        "Aprov_No_Conselho" => "",
-        "Atleta" => "",
-        "Recebe_Auxilio" => "",
-        "CQ" => "",
-        "PE" => "",
-        "SD" => "",
-        "EC" => ""
-    ),
-    "Informações_Disciplinares" => array(
-        "Disciplina" => "",
-        "Média" => "",
-        "Média_Final" => "",
-        "Professor" => ""
-    ),
-    "Progresso_Geral" => array(
-        "Porcentagem_de_Recuperações" => "",
-        "Disciplina_em_Recuperações" => "",
-        "Disciplina_Total" => "",
-        "Porcentagem_Recuperada" => "",
-        "Disciplina_Recuperada" => ""
-    ),
-    "Progresso_Base_Comum" => array(
-        "Porcentagem_de_Recuperações" => "",
-        "Disciplina_em_Recuperações" => "",
-        "Disciplina_Total" => "",
-        "Porcentagem_Recuperada" => "",
-        "Disciplina_Recuperada" => ""
-    ),
-    "Progresso_Técnico" => array(
-        "Porcentagem_de_Recuperações" => "",
-        "Disciplina_em_Recuperações" => "",
-        "Disciplina_Total" => "",
-        "Porcentagem_Recuperada" => "",
-        "[Disciplina_Recuperada]" => ""
-    ),
-    "Se_o_Ano_Acabasse_Hoje" => array(
-        "Disciplina_em_Prova_Final" => "",
-        "Disciplina_Reprovadas" => "",
-        "Disciplinas_Aprovadas" => ""
-    )
-);
- * 
- */
 
-
-$gravi = arrayAluno();
 
 
 print "<pre>";
 print_r($_SESSION['ArrayDeDados2']);
-
-//print_r($gravi);
 print "</pre>";
+?>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Gerador de Relatórios</title>
+        <link rel="stylesheet" href="../Front_end/bootstrap/css/bootstrap.min_1.css">        
+    </head>
+    <body>
+       
+        <div class="col-lg-6">
+            <?php
+            print "<pre>";
+            print_r($_SESSION['ArrayDeDados2']);
+            print "</pre>";
+            ?>
+        </div>
+        <div class="col-lg-6">
+            <?php
+            print "<pre>";
+            print_r($_SESSION['ArrayDeAlunos']);
+            print "</pre>";
+            ?>
+        </div>        
+    </body>
+</html>
