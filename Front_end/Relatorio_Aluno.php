@@ -17,7 +17,9 @@ Autor: Lucas Alberico de Sousa
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min_1.css">
         <link rel="stylesheet" href="bootstrap/css/Style.css">
+        
     </head>
+    
     
     <body onload="mudaEstilo(<?php print count($relatorio[$matricula[0]]["Informações_do_Aluno"]["Informações_Disciplinares"]) ?>, <?php print count($matricula)?>)">
      <?php for ($a = 0; $a < count($matricula); $a++) { ?>           
@@ -96,21 +98,46 @@ Autor: Lucas Alberico de Sousa
                         </div>
 
                         <div class="col-md-12">
-                            <table class="table">
+                            <table class="table table-bordered">
                                 <tr class="BackgroundAzul LetraBranca">
                                     <th><h3>Diciplina</h3></th>
-                                    <th><h3>Média</h3></th>
-                                    <th><h3>Média Final</h3></th>
+                                    <th><h3>B1</h3></th>
+                                    <th><h3>R1</h3></th>
+                                    <th><h3>M1</h3></th>
+                                    <th><h3>B2</h3></th>
+                                    <th><h3>R2</h3></th>
+                                    <th><h3>M2</h3></th>
+                                    <th><h3>B3</h3></th>
+                                    <th><h3>R3</h3></th>
+                                    <th><h3>M3</h3></th>
+                                    <th><h3>B4</h3></th>
+                                    <th><h3>R4</h3></th>
+                                    <th><h3>M4</h3></th>
+                                    <th><h3>PF</h3></th>
+                                    <th><h3>MF</h3></th>
                                     <th><h3>Professores</h3></th>
                                 </tr>
                                 <?php for ($b = 0; $b < count($relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"]); $b++) {  ?>
                                 <tr id="notas">
                                     <td><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Diciplina"] ?></td>
-                                    <td id="<?php print (string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Média"] ?></td>
-                                    <td id="<?php print "f".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Média_Final"] ?></td>
+                                    
+                                    <td id="<?php print "b1".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_1"] ?></td>                                    
+                                    <td id="<?php print "r1".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_1"] ?></td>
+                                    <td id="<?php print "m1".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_1"] ?></td>
+                                    <td id="<?php print "b2".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_2"] ?></td>                                    
+                                    <td id="<?php print "r2".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_2"] ?></td>
+                                    <td id="<?php print "m2".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_2"] ?></td>
+                                    <td id="<?php print "b3".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_3"] ?></td>                                    
+                                    <td id="<?php print "r3".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_3"] ?></td>
+                                    <td id="<?php print "m3".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_3"] ?></td>
+                                    <td id="<?php print "b4".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_4"] ?></td>                                    
+                                    <td id="<?php print "r4".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_4"] ?></td>
+                                    <td id="<?php print "m4".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_4"] ?></td>
+                                    <td id="<?php print "pf".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Prova_Final"] ?></td>
+                                    <td id="<?php print "mf".(string)$b.$a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_Final"] ?></td>
+                                    
                                     <td><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Professor"] ?></td>
-                                </tr> 
-                                <script type="text/javascript" src="bootstrap/js/script2.js"></script>
+                                </tr>                                 
                                 <?php } ?>
                                 
                             </table>                        
@@ -267,9 +294,10 @@ Autor: Lucas Alberico de Sousa
                 <!-- Fim do painel de de Progresso de Se o Ano Acabasse Hoje? -->
             </div>            
         </div>
-        <?php } ?>
+        <?php } ?>        
         <script type="text/javascript" src="bootstrap/jquery/jquery.js"></script>
-        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>        
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>  
+        <script type="text/javascript" src="bootstrap/js/script2.js"></script>
     </body>
     
 </html>

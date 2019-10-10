@@ -127,3 +127,40 @@ function ExisteParamNoArray($variavelGlobal, $valor, $numeros) {
         return "--";
     }
 }
+
+function organizaDados($array) {
+   end($array[0]);
+   switch (key($array[0])) {
+       case "Pe": $_SESSION['ArrayDeDados'] = $array;
+           break;
+       case "ativo": $_SESSION['ArrayDeDados2'] = $array;
+           break;
+       case "extra_classe_id": $_SESSION['ArrayDeDados3'] = $array;
+           break;
+       case "tipo_advertencia": $_SESSION['ArrayDeDados4'] = $array;
+           break;
+       
+   }
+}
+
+function getSD($matricula) {
+    $Indiciplina = $_SESSION['ArrayDeDados4'];
+    $quantidade = 0;
+    for ($a = 0; $a < count($Indiciplina); $a++) {
+        if($Indiciplina[$a]["matricula"] === $matricula){
+            $quantidade++;
+        }
+    }
+    return $quantidade;
+}
+
+function getEC($matricula) {
+    $ExtraClass = $_SESSION['ArrayDeDados3'];
+    $quantidade = 0;
+    for ($a = 0; $a < count($ExtraClass); $a++) {
+        if($ExtraClass[$a]["matricula"] === $matricula){
+            $quantidade++;
+        }
+    }
+    return $quantidade;
+}

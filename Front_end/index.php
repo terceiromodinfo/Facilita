@@ -41,9 +41,10 @@ Autor: Lucas Alberico de Sousa
         <div class="col-lg-4"></div>  
         <div class="col-lg-4">
             <div class=""> 
-                
                 <form id="form" action="../Back-end/Excript_Principal.php" method="POST" enctype="multipart/form-data">
-                    <label>Selecionar os arquivo potencial evasão e arquivo de informações diciplinares</label><br><br><br>
+                    <label>Selecionar o arquivo potencial evasão, arquivo de informações diciplinares, arquivo
+                    de extra classe, arquivo de indiciplina.                  
+                    </label><br><br><br>
                     <div class="form-group">
                         <label>Selecionar a o arquivo</label>
                         <input type="file" class="btn btn-default"  name="file" value="Upload">
@@ -51,6 +52,14 @@ Autor: Lucas Alberico de Sousa
                     <div class="form-group">
                         <label>Selecionar a o arquivo</label>
                         <input type="file" class="btn btn-default"  name="file2" value="Upload">
+                    </div>
+                    <div class="form-group">
+                        <label>Selecionar a o arquivo</label>
+                        <input type="file" class="btn btn-default"  name="file3" value="Upload">
+                    </div>
+                    <div class="form-group">
+                        <label>Selecionar a o arquivo</label>
+                        <input type="file" class="btn btn-default"  name="file4" value="Upload">
                     </div>
                     <input type="submit" class="btn btn-default" onclick="carregando('form')" value="Prosseguir" name="LerCsv">
                 </form>

@@ -1,6 +1,6 @@
 <?php
 include './Funcoes.php';
-
+$a = arrayAluno();
 ?>
 <html>
     <head>
@@ -13,18 +13,24 @@ include './Funcoes.php';
     <body>
        
         <div class="col-lg-6">
-            <?php
-            print "<pre>";
-            print_r($_SESSION['ArrayDeDados2']);
-            print "</pre>";
-            ?>
+<?php
+
+  print "<pre>";
+  print_r($a);
+  print_r($_SESSION['ArrayDeDados2']);
+  print "</pre>";
+ 
+?>
         </div>
         <div class="col-lg-6">
-            <?php
-            print "<pre>";
-            print_r($_SESSION['ArrayDeAlunos']);
-            print "</pre>";
-            ?>
-        </div>        
+<?php
+/*
+  print "<pre>";
+  print_r($_SESSION['ArrayDeAlunos']);
+  print "</pre>";
+ * 
+ */
+?>
+       
     </body>
 </html>
