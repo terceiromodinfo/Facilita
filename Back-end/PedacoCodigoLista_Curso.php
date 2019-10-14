@@ -1,6 +1,5 @@
 <?php
 include './Funcoes.php';
-$a = arrayAluno();
 ?>
 <html>
     <head>
@@ -16,8 +15,7 @@ $a = arrayAluno();
 <?php
 
   print "<pre>";
-  print_r($a);
-  print_r($_SESSION['ArrayDeDados2']);
+  print_r($_SESSION['Relatorio']);
   print "</pre>";
  
 ?>

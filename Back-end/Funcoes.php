@@ -88,25 +88,13 @@ function arrayAluno() {
             )
         ),
         "Progresso_Geral" => array(
-            "Porcentagem_de_Recuperações" => "",
-            "Disciplina_em_Recuperações" => "",
-            "Disciplina_Total" => "",
-            "Porcentagem_Recuperada" => "",
-            "Disciplina_Recuperada" => ""
-        ),
-        "Progresso_Base_Comum" => array(
-            "Porcentagem_de_Recuperações" => "",
-            "Disciplina_em_Recuperações" => "",
-            "Disciplina_Total" => "",
-            "Porcentagem_Recuperada" => "",
-            "Disciplina_Recuperada" => ""
-        ),
-        "Progresso_Técnico" => array(
-            "Porcentagem_de_Recuperações" => "",
-            "Disciplina_em_Recuperações" => "",
-            "Disciplina_Total" => "",
-            "Porcentagem_Recuperada" => "",
-            "Disciplina_Recuperada" => ""
+            0 => array(
+                "Porcentagem_de_Recuperações" => "",
+                "Disciplina_em_Recuperações" => "",
+                "Disciplina_Total" => "",
+                "Porcentagem_Recuperada" => "",
+                "Disciplina_Recuperada" => ""
+            )
         ),
         "Se_o_Ano_Acabasse_Hoje" => array(
             "Disciplina_em_Prova_Final" => "",
@@ -115,39 +103,40 @@ function arrayAluno() {
         )
     );
 }
+
 function ExisteParamNoArray($variavelGlobal, $valor, $numeros) {
-    if(isset($_SESSION[$variavelGlobal][$numeros][$valor])){
-        if ($_SESSION[$variavelGlobal][$numeros][$valor] === " "){
+
+    if (isset($_SESSION[$variavelGlobal][$numeros][$valor])) {
+
+        if ($_SESSION[$variavelGlobal][$numeros][$valor] === "") {
             return "--";
         } else {
             return $_SESSION[$variavelGlobal][$numeros][$valor];
         }
-        
     } else {
         return "--";
     }
 }
 
 function organizaDados($array) {
-   end($array[0]);
-   switch (key($array[0])) {
-       case "Pe": $_SESSION['ArrayDeDados'] = $array;
-           break;
-       case "ativo": $_SESSION['ArrayDeDados2'] = $array;
-           break;
-       case "extra_classe_id": $_SESSION['ArrayDeDados3'] = $array;
-           break;
-       case "tipo_advertencia": $_SESSION['ArrayDeDados4'] = $array;
-           break;
-       
-   }
+    end($array[0]);
+    switch (key($array[0])) {
+        case "Pe": $_SESSION['ArrayDeDados'] = $array;
+            break;
+        case "ativo": $_SESSION['ArrayDeDados2'] = $array;
+            break;
+        case "extra_classe_id": $_SESSION['ArrayDeDados3'] = $array;
+            break;
+        case "tipo_advertencia": $_SESSION['ArrayDeDados4'] = $array;
+            break;
+    }
 }
 
 function getSD($matricula) {
     $Indiciplina = $_SESSION['ArrayDeDados4'];
     $quantidade = 0;
     for ($a = 0; $a < count($Indiciplina); $a++) {
-        if($Indiciplina[$a]["matricula"] === $matricula){
+        if ($Indiciplina[$a]["matricula"] === $matricula) {
             $quantidade++;
         }
     }
@@ -158,9 +147,79 @@ function getEC($matricula) {
     $ExtraClass = $_SESSION['ArrayDeDados3'];
     $quantidade = 0;
     for ($a = 0; $a < count($ExtraClass); $a++) {
-        if($ExtraClass[$a]["matricula"] === $matricula){
+        if ($ExtraClass[$a]["matricula"] === $matricula) {
             $quantidade++;
         }
     }
     return $quantidade;
+}
+
+function getProgressoGeral($info) {
+    $resultDeInfo = array();
+    $chaves = array(0 => "Bimestre_1", 1 => "Bimestre_2", 2 => "Bimestre_3", 3 => "Bimestre_4");
+    $chaves2 = array(0 => "Media_1", 1 => "Media_2", 2 => "Media_3", 3 => "Media_4");
+
+    for ($a = 0; $a < 4; $a++) {
+        $dicEmRecupe = 0;
+        $dicRecupe = 0;
+        for ($b = 0; $b < count($info); $b++) {
+            $convertido = (double) $info[$b][$chaves[$a]];
+            if (($convertido != 0) && $convertido < 7) {
+                //Aqui trabalharemos o codigo de informações do Progresso Geral
+                $dicEmRecupe = $dicEmRecupe + 1;
+                $convertido2 = (double) $info[$b][$chaves2[$a]];
+                if ($convertido2 >= 7) {
+                    $dicRecupe = $dicRecupe + 1;
+                }
+
+                $resultDeInfo[$a]["Disciplina_Total"] = count($info);
+                $resultDeInfo[$a]["Disciplina_em_Recuperações"] = $dicEmRecupe;
+                $resultDeInfo[$a]["Disciplina_Recuperada"] = $dicRecupe;
+                $resultDeInfo[$a]["Porcentagem_de_Recuperações"] = (($resultDeInfo[$a]["Disciplina_Total"] - $resultDeInfo[$a]["Disciplina_em_Recuperações"]) * 100 / $resultDeInfo[$a]["Disciplina_Total"]) - 100;
+                $resultDeInfo[$a]["Porcentagem_Recuperada"] = (($resultDeInfo[$a]["Disciplina_em_Recuperações"] - $resultDeInfo[$a]["Disciplina_Recuperada"]) * 100 / $resultDeInfo[$a]["Disciplina_em_Recuperações"]) - 100;
+                ;
+            }
+        }
+    }
+    return $resultDeInfo;
+}
+
+function getFimAnoAgora($info) {
+    $resultDeInfo = array();
+    $resultDeInfoFinal["Aprovado"] = 0;
+    $resultDeInfoFinal["Pro_Final"] = 0;
+    $resultDeInfoFinal["Reprovado"] = 0;
+    $chaves2 = array(0 => "Media_1", 1 => "Media_2", 2 => "Media_3", 3 => "Media_4");
+    $media = 0;
+    $quantMedia = 0;
+    //Roda quantidade de vez do total de diciplina
+    for ($a = 0; $a < count($info); $a++) {
+        //Roda total de notas na media
+        for ($b = 0; $b < count($chaves2); $b++) {
+            //Entra se existir uma media
+            if ($info[$a][$chaves2[$b]] != 0) {
+                $media = $media + $info[$a][$chaves2[$b]];
+                $quantMedia = $quantMedia + 1;
+            }
+        }
+        //Entrega o resultado para ser avaliado para proximo codigo
+        $resultDeInfo[$a]["media_somada"] = $media;
+        $resultDeInfo[$a]["quantidade_media"] = $quantMedia;
+        $resultDeInfo[$a]["id_diciplina"] = $info[$a]["Id_diciplina"];
+        
+        $media = 0;
+        $quantMedia = 0;
+    }
+    //Mota o resultado
+    for ($c = 0; $c < count($resultDeInfo); $c++) {
+        $result = ($resultDeInfo[$c]["media_somada"] / $resultDeInfo[$c]["quantidade_media"]);
+        if ($result >= 7) {
+            $resultDeInfoFinal["Aprovado"] = $resultDeInfoFinal["Aprovado"] + 1;
+        } elseif ($result < 7 && $result > 4) {
+            $resultDeInfoFinal["Pro_Final"] = $resultDeInfoFinal["Pro_Final"] + 1;
+        } else {
+            $resultDeInfoFinal["Reprovado"] = $resultDeInfoFinal["Reprovado"] + 1;
+        }
+    }
+    return $resultDeInfoFinal;
 }

@@ -30,10 +30,11 @@ function mudaEstilo(arrays, arrays2) {
 
 function estilizando(um, dois, posicao) {
     var obj = document.getElementById(posicao + um + dois);
-
-    if (document.getElementById(posicao + um + dois).innerHTML <= 4) {
+    if(document.getElementById(posicao + um + dois).innerHTML <= 0){
+        document.getElementById(posicao + um + dois).innerHTML = null;
+    }else if (Math.trunc(document.getElementById(posicao + um + dois).innerHTML) <= 4 && Math.trunc(document.getElementById(posicao + um + dois).innerHTML) > 0) {
         obj.style.color = "Red";
-    } else if (document.getElementById(posicao + um + dois).innerHTML > 4 && document.getElementById("notas").innerHTML < 7) {
+    } else if (Math.trunc(document.getElementById(posicao + um + dois).innerHTML) > 5 && Math.trunc(document.getElementById("notas").innerHTML) <= 7) {
         obj.style.color = "OrangeRed";
     } else {
         obj.style.color = "DodgerBlue";

@@ -240,6 +240,7 @@ if (isset($get['alunos'])) {
                 for ($c = 0; $c < count($ArraysDeDados2); $c++) {
                     if ($ArraysDeDados2[$c]["matricula"] === $ArrayDeAlunos[$a]['matricula']) {
                         $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["Informações_Disciplinares"][$contador]["Diciplina"] = ExisteParamNoArray("ArrayDeDados2", "disciplina", $c);
+                        $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["Informações_Disciplinares"][$contador]["Id_diciplina"] = ExisteParamNoArray("ArrayDeDados2", "disciplina_id", $c);
                         
                         $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["Informações_Disciplinares"][$contador]["Bimestre_1"] = ExisteParamNoArray("ArrayDeDados2", "B1", $c);
                         $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["Informações_Disciplinares"][$contador]["Recuperar_1"] = ExisteParamNoArray("ArrayDeDados2", "R1", $c);
@@ -254,16 +255,26 @@ if (isset($get['alunos'])) {
                         $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["Informações_Disciplinares"][$contador]["Recuperar_4"] = ExisteParamNoArray("ArrayDeDados2", "R4", $c);
                         $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["Informações_Disciplinares"][$contador]["Media_4"] = ExisteParamNoArray("ArrayDeDados2", "M4", $c);
                         $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["Informações_Disciplinares"][$contador]["Prova_Final"] = ExisteParamNoArray("ArrayDeDados2", "PF", $c);
-                        $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["Informações_Disciplinares"][$contador]["Media_Final"] = ExisteParamNoArray("ArrayDeDados2", "MF", $c);
+                        $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["Informações_Disciplinares"][$contador]["Media_Final"] = (double)ExisteParamNoArray("ArrayDeDados2", "MF", $c);
                         
                         $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["Informações_Disciplinares"][$contador]["Professor"] = ExisteParamNoArray("ArrayDeDados2", "professor", $c);
                         $contador++;
                     }
                 }
-
-                //print "<pre>";
-                //print_r($ArrayDeAluno);
-                //print "</pre>";
+                
+                $progressoGeral = getProgressoGeral($ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["Informações_Disciplinares"]);
+                
+                for ($e = 0; $e < count($progressoGeral); $e++) {
+                    $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Progresso_Geral"][$e]["Porcentagem_de_Recuperações"] = $progressoGeral[$e]["Porcentagem_de_Recuperações"];
+                    $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Progresso_Geral"][$e]["Disciplina_em_Recuperações"] = $progressoGeral[$e]["Disciplina_em_Recuperações"];
+                    $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Progresso_Geral"][$e]["Disciplina_Total"] = $progressoGeral[$e]["Disciplina_Total"];
+                    $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Progresso_Geral"][$e]["Porcentagem_Recuperada"] = $progressoGeral[$e]["Porcentagem_Recuperada"];
+                    $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Progresso_Geral"][$e]["Disciplina_Recuperada"] = $progressoGeral[$e]["Disciplina_Recuperada"];
+                }
+                $SeAnoAcaba = getFimAnoAgora($ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["Informações_Disciplinares"]);
+                $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Se_o_Ano_Acabasse_Hoje"]["Disciplina_em_Prova_Final"] = $SeAnoAcaba["Pro_Final"];
+                $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Se_o_Ano_Acabasse_Hoje"]["Disciplina_Reprovadas"] = $SeAnoAcaba["Reprovado"];
+                $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Se_o_Ano_Acabasse_Hoje"]["Disciplinas_Aprovadas"] = $SeAnoAcaba["Aprovado"];
             }
         }
     }
@@ -271,7 +282,7 @@ if (isset($get['alunos'])) {
     $_SESSION['Relatorio'] = $ArrayDeAluno;
 
     print "<pre>";
-    //print_r($_SESSION['ArrayDeDados']);
+    //print_r($ArrayDeAluno);
     print "</pre>";
     exit(header("location:../Front_end/Relatorio_Aluno.php"));
 }
