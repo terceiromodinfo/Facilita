@@ -1,5 +1,7 @@
 <?php
 include './Funcoes.php';
+$relatorio = $_SESSION['Relatorio'];
+$matricula = $_SESSION['Matricula'];
 ?>
 <html>
     <head>
@@ -10,24 +12,13 @@ include './Funcoes.php';
         <link rel="stylesheet" href="../Front_end/bootstrap/css/bootstrap.min_1.css">        
     </head>
     <body>
-       
-        <div class="col-lg-6">
+        
 <?php
 
   print "<pre>";
   print_r($_SESSION['Relatorio']);
   print "</pre>";
  
-?>
-        </div>
-        <div class="col-lg-6">
-<?php
-/*
-  print "<pre>";
-  print_r($_SESSION['ArrayDeAlunos']);
-  print "</pre>";
- * 
- */
 ?>
        
     </body>

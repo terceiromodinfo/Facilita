@@ -64,30 +64,30 @@ Autor: Lucas Alberico de Sousa
                                         <img src="img/default.png">
                                     </div> 
                                     <div class="col-md-7">
-                                        <h6>
+                                        <label>
                                             N O M E : <?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Nome"] ?>
-                                        </h6>
-                                        <h6>
+                                        </label><br>
+                                        <label>
                                             T U R M A : <?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Turma"] ?>
-                                        </h6>
-                                        <h6>
+                                        </label><br>
+                                        <label>
                                             I D A D E : <?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Idade"] ?>
-                                        </h6>
-                                        <h6>
+                                        </label><br>
+                                        <label>
                                             C I D A D E : <?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Cidade"] ?>
-                                        </h6>
-                                        <h6>
+                                        </label><br>
+                                        <label>
                                             R E P E T E N T E : <?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Repetente"] ?>
-                                        </h6>
-                                        <h6>
+                                        </label><br>
+                                        <label>
                                             A P R O V . N O C O N S E L H O : <?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Aprov_No_Conselho"] ?>
-                                        </h6>
-                                        <h6>
+                                        </label><br>
+                                        <label>
                                             A T L E T A : <?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Atleta"] ?>
-                                        </h6>
-                                        <h6>
+                                        </label><br>
+                                        <label>
                                             R E C E B E A U X Í L I O : <?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Recebe_Auxilio"] ?>
-                                        </h6>
+                                        </label><br>
                                     </div> 
                                     <div class="col-md-12">
                                         <div class="col-md-3 central">
@@ -146,20 +146,20 @@ Autor: Lucas Alberico de Sousa
                                         <tr id="notas">
                                             <td><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Diciplina"] ?></td>
 
-                                            <td id="<?php print "b1" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_1"] ?></td>                                    
-                                            <td id="<?php print "r1" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_1"] ?></td>
-                                            <td id="<?php print "m1" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_1"] ?></td>
-                                            <td id="<?php print "b2" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_2"] ?></td>                                    
-                                            <td id="<?php print "r2" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_2"] ?></td>
-                                            <td id="<?php print "m2" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_2"] ?></td>
-                                            <td id="<?php print "b3" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_3"] ?></td>                                    
-                                            <td id="<?php print "r3" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_3"] ?></td>
-                                            <td id="<?php print "m3" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_3"] ?></td>
-                                            <td id="<?php print "b4" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_4"] ?></td>                                    
-                                            <td id="<?php print "r4" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_4"] ?></td>
-                                            <td id="<?php print "m4" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_4"] ?></td>
-                                            <td id="<?php print "pf" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Prova_Final"] ?></td>
-                                            <td id="<?php print "mf" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_Final"] ?></td>
+                                            <td class="LetralCooperBlack" id="<?php print "b1" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_1"] ?></td>                                    
+                                            <td class="LetralCooperBlack" id="<?php print "r1" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_1"] ?></td>
+                                            <td class="LetrasDestacadas" id="<?php print "m1" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_1"] ?></td>
+                                            <td class="LetralCooperBlack" id="<?php print "b2" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_2"] ?></td>                                    
+                                            <td class="LetralCooperBlack" id="<?php print "r2" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_2"] ?></td>
+                                            <td class="LetrasDestacadas" id="<?php print "m2" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_2"] ?></td>
+                                            <td class="LetralCooperBlack" id="<?php print "b3" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_3"] ?></td>                                    
+                                            <td class="LetralCooperBlack" id="<?php print "r3" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_3"] ?></td>
+                                            <td class="LetrasDestacadas" id="<?php print "m3" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_3"] ?></td>
+                                            <td class="LetralCooperBlack" id="<?php print "b4" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_4"] ?></td>                                    
+                                            <td class="LetralCooperBlack" id="<?php print "r4" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_4"] ?></td>
+                                            <td class="LetrasDestacadas" id="<?php print "m4" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_4"] ?></td>
+                                            <td class="LetralCooperBlack" id="<?php print "pf" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Prova_Final"] ?></td>
+                                            <td class="LetrasDestacadas" id="<?php print "mf" . (string) $b . $a ?>"><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_Final"] ?></td>
 
                                             <td><?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Professor"] ?></td>
                                         </tr>                                 

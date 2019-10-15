@@ -284,5 +284,40 @@ if (isset($get['alunos'])) {
     print "<pre>";
     //print_r($ArrayDeAluno);
     print "</pre>";
+    unset($get['alunos']);
     exit(header("location:../Front_end/Relatorio_Aluno.php"));
+}
+
+if (isset($post['EditarDados'])) {
+    $nome = $post['nome'];
+    $turma = $post['turma'];
+    $idade = $post['idade'];
+    $cidade = $post['cidade'];
+    $repetente = $post['repetente'];
+    $apNoCoselho = $post['aprovadoNoConselho'];
+    $atleta = $post['atleta'];
+    $recebeAuxilio = $post['recebeAuxilio'];
+    $cq = $post['cq'];
+    $pe = $post['pe'];
+    $sd = $post['sd'];
+    $ec = $post['ec'];     
+    
+    print $nome."<br>".$turma."<br>".$idade."<br>".$cidade."<br>".$repetente."<br>".$apNoCoselho."<br>".$atleta."<br>".$recebeAuxilio."<br>".$cq."<br>".$pe."<br>".$sd."<br>".$ec;
+    unset($post['EditarDados']);
+}
+if (isset($get['AddBimestre'])) {
+    $matricula = $get['AddBimestre'];    
+    $Progresso_Geral = $_SESSION['Relatorio'][$matricula]['Progresso_Geral'];    
+    if (count($Progresso_Geral) < 4) {    
+        $Progresso_Geral[count($Progresso_Geral)]["Porcentagem_de_Recuperações"] = 0;
+        $Progresso_Geral[count($Progresso_Geral)-1]["Disciplina_em_Recuperações"] = 0;
+        $Progresso_Geral[count($Progresso_Geral)-1]["Disciplina_Total"] = 0;
+        $Progresso_Geral[count($Progresso_Geral)-1]["Porcentagem_Recuperada"] = 0;        
+        $Progresso_Geral[count($Progresso_Geral)-1]["Disciplina_Recuperada"] = 0;
+        
+        $_SESSION['Relatorio'][$matricula]['Progresso_Geral'] = $Progresso_Geral;
+    }
+
+    unset($get['AddBimestre']);
+    exit(header("location:../Front_end/Edit.php?Serk=".base64_encode("Edição Ativa").""));
 }
