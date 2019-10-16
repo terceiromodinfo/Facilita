@@ -57,11 +57,20 @@ function getNomeCurso($param) {
     return $nomecurso;
 }
 
+/*
+ * Exibe um botão que contem informações muito complexas, mas serve para deixar o codigo mais agradavel
+ */
+
 function superLinkGet($destino, $variavelGet, $arquivo, $parametroLoading, $palavraExibida, $class) {
     ?>
     <a <?php print 'href="' . $destino . '?' . $variavelGet . '=' . $arquivo . ' "' ?> onclick="carregando('Ps')" class="<?php print $class ?>"><?php print $palavraExibida; ?></a><br>
     <?php
 }
+
+/*
+ * Retorna a arquitetura do Array do relatorio final. Não tem funcionalidade no codigo
+ * apenas serve para o programdor ter uma ideia do desenho da arquitetura do array que recebe os dados 
+ */
 
 function arrayAluno() {
     return $array = array(
@@ -104,6 +113,10 @@ function arrayAluno() {
     );
 }
 
+/*
+ * Verifica a existencia do parametro na variavel global
+ */
+
 function ExisteParamNoArray($variavelGlobal, $valor, $numeros) {
 
     if (isset($_SESSION[$variavelGlobal][$numeros][$valor])) {
@@ -117,7 +130,9 @@ function ExisteParamNoArray($variavelGlobal, $valor, $numeros) {
         return "--";
     }
 }
-
+/*
+ * Organiza os dados na variavel global correta para ser usada nos codigos
+ */
 function organizaDados($array) {
     end($array[0]);
     switch (key($array[0])) {
@@ -131,7 +146,9 @@ function organizaDados($array) {
             break;
     }
 }
-
+/*
+ * Retorna aquantidade de ardivertencias que a matricula passada tem
+ */
 function getSD($matricula) {
     $Indiciplina = $_SESSION['ArrayDeDados4'];
     $quantidade = 0;
@@ -142,7 +159,9 @@ function getSD($matricula) {
     }
     return $quantidade;
 }
-
+/*
+ * Retorna aquantidade de extra class que a matricula passada tem
+ */
 function getEC($matricula) {
     $ExtraClass = $_SESSION['ArrayDeDados3'];
     $quantidade = 0;
@@ -153,7 +172,9 @@ function getEC($matricula) {
     }
     return $quantidade;
 }
-
+/*
+ * retorna um array com todas as informaçoes do progrsso do aluno
+ */
 function getProgressoGeral($info) {
     $resultDeInfo = array();
     $chaves = array(0 => "Bimestre_1", 1 => "Bimestre_2", 2 => "Bimestre_3", 3 => "Bimestre_4");
@@ -183,7 +204,9 @@ function getProgressoGeral($info) {
     }
     return $resultDeInfo;
 }
-
+/*
+ * Retorna um array com as infomações do alunos se o ano cabase hoje
+ */
 function getFimAnoAgora($info) {
     $resultDeInfo = array();
     $resultDeInfoFinal["Aprovado"] = 0;
@@ -206,7 +229,7 @@ function getFimAnoAgora($info) {
         $resultDeInfo[$a]["media_somada"] = $media;
         $resultDeInfo[$a]["quantidade_media"] = $quantMedia;
         $resultDeInfo[$a]["id_diciplina"] = $info[$a]["Id_diciplina"];
-        
+
         $media = 0;
         $quantMedia = 0;
     }

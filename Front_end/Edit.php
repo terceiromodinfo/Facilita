@@ -97,13 +97,13 @@ if (isset($get["Serk"]) && base64_decode($get["Serk"]) == "Edição Ativa") {
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>Selecionar o grafico</label>
-                                            <input type="file" id="grafi" class="btn btn-default"  name="fotoGrafico" value="Upload">
+                                        <div class="col-sm-12">
+                                            <label>Link da imagem do Grafico:</label>
+                                        <input type="text" class="form-control input-group-lg chat-input"  name="imgGrafic" value="">
                                         </div>
-                                        <div class="form-group">
-                                            <label>Selecionar foto do aluno</label>
-                                            <input type="file" id="perfil" class="btn btn-default" name="fotoPerfil" value="Upload">
+                                        <div class="col-sm-12">
+                                            <label>Link da imagem do Perfil:</label>
+                                        <input type="text" class="form-control input-group-lg chat-input"  name="imgPerfil" value="">
                                         </div>
                                     </div>
                                     
@@ -131,26 +131,27 @@ if (isset($get["Serk"]) && base64_decode($get["Serk"]) == "Edição Ativa") {
                                         <th><h3>MF</h3></th>
                                         <th><h3>Professores</h3></th>
                                     </tr>
-                                    <?php for ($b = 0; $b < count($relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"]); $b++) { ?>
+                                    <?php for ($b = 0; $b < count($relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"]); $b++) { 
+                                        $diciplina = $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Diciplina"];?>
                                         <tr id="notas">
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Diciplina"] ?>"></td>
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "diciplina".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Diciplina"] ?>"></td>
 
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_1"] ?>"></td>                                    
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_1"] ?>"></td>
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_1"] ?>"></td>
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_2"] ?>"></td>                                    
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_2"] ?>"></td>
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_2"] ?>"></td>
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_3"] ?>"></td>                                    
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_3"] ?>"></td>
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_3"] ?>"></td>
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_4"] ?>"></td>                                    
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_4"] ?>"></td>
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_4"] ?>"></td>
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Prova_Final"] ?>"></td>
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_Final"] ?>"></td>
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "bimestre1".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_1"] ?>"></td>                                    
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "recuperacao1".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_1"] ?>"></td>
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "media1".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_1"] ?>"></td>
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "bimestre2".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_2"] ?>"></td>                                    
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "recuperacao2".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_2"] ?>"></td>
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "media2".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_2"] ?>"></td>
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "bimestre3".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_3"] ?>"></td>                                    
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "recuperacao3".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_3"] ?>"></td>
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "media3".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_3"] ?>"></td>
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "bimestre4".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Bimestre_4"] ?>"></td>                                    
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "recuperacao4".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Recuperar_4"] ?>"></td>
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "media4".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_4"] ?>"></td>
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "prova_final".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Prova_Final"] ?>"></td>
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "media_final".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Media_Final"] ?>"></td>
 
-                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Professor"] ?>"></td>
+                                            <td><input type="text" class="form-control input-group-lg chat-input"  name="<?php print "professor".$b ?>" value="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Informações_Disciplinares"][$b]["Professor"] ?>"></td>
                                         </tr>                                 
                                     <?php } ?>
 
@@ -173,23 +174,23 @@ if (isset($get["Serk"]) && base64_decode($get["Serk"]) == "Edição Ativa") {
                                         </div>
                                         <div class="col-sm-2">
                                             <label>Porcentagem de Recuperações</label>
-                                            <input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print abs(round($relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Porcentagem_de_Recuperações"])) ?>">
+                                            <input type="text" class="form-control input-group-lg chat-input"  name="<?php print "PdR".$c ?>" value="<?php print abs(round($relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Porcentagem_de_Recuperações"])) ?>">
                                         </div>
                                         <div class="col-sm-2">
                                             <label>Disciplina em Recuperações</label>
-                                            <input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print abs(round($relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Disciplina_em_Recuperações"])) ?>">
+                                            <input type="text" class="form-control input-group-lg chat-input"  name="<?php print "DeR".$c ?>" value="<?php print abs(round($relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Disciplina_em_Recuperações"])) ?>">
                                         </div>
                                         <div class="col-sm-2">
-                                            <label>Todas as isciplina Total</label>
-                                            <input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print abs(round($relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Disciplina_Total"])) ?>">
+                                            <label>Todas as Disciplina Total</label>
+                                            <input type="text" class="form-control input-group-lg chat-input"  name="<?php print "DT".$c ?>" value="<?php print abs(round($relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Disciplina_Total"])) ?>">
                                         </div>
                                         <div class="col-sm-2">
                                             <label>Porcentagem Recuperada</label>
-                                            <input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print abs(round($relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Porcentagem_Recuperada"])) ?>">
+                                            <input type="text" class="form-control input-group-lg chat-input"  name="<?php print "PR".$c ?>" value="<?php print abs(round($relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Porcentagem_Recuperada"])) ?>">
                                         </div>
                                         <div class="col-sm-2">
                                             <label>Disciplina Recuperada</label>
-                                            <input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print abs(round($relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Disciplina_Recuperada"])) ?>">
+                                            <input type="text" class="form-control input-group-lg chat-input"  name="<?php print "DR".$c ?>" value="<?php print abs(round($relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Disciplina_Recuperada"])) ?>">
                                         </div>
                                     </div>
 
@@ -204,21 +205,21 @@ if (isset($get["Serk"]) && base64_decode($get["Serk"]) == "Edição Ativa") {
                                 <div class="col-sm-12">
                                     <div class="col-sm-4">
                                         <label>Disciplina em Provas Finais</label>
-                                        <input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Se_o_Ano_Acabasse_Hoje"]["Disciplina_em_Prova_Final"] ?>">
+                                        <input type="text" class="form-control input-group-lg chat-input"  name="DicProvFinal" value="<?php print $relatorio[$matricula[$a]]["Se_o_Ano_Acabasse_Hoje"]["Disciplina_em_Prova_Final"] ?>">
                                     </div>
                                     <div class="col-sm-4">
                                         <label>Disciplina Reprovadas Diretamente</label>
-                                        <input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Se_o_Ano_Acabasse_Hoje"]["Disciplina_Reprovadas"] ?>">
+                                        <input type="text" class="form-control input-group-lg chat-input"  name="DiciReprovDirect" value="<?php print $relatorio[$matricula[$a]]["Se_o_Ano_Acabasse_Hoje"]["Disciplina_Reprovadas"] ?>">
                                     </div>
                                     <div class="col-sm-4">
                                         <label>Disciplina Aprovadas</label>
-                                        <input type="text" class="form-control input-group-lg chat-input"  name="" value="<?php print $relatorio[$matricula[$a]]["Se_o_Ano_Acabasse_Hoje"]["Disciplinas_Aprovadas"] ?>">
+                                        <input type="text" class="form-control input-group-lg chat-input"  name="DiciAprov" value="<?php print $relatorio[$matricula[$a]]["Se_o_Ano_Acabasse_Hoje"]["Disciplinas_Aprovadas"] ?>">
                                     </div>
                                 </div>
                                 <label></label>
                                 <!-- Se o ano acabace hoje -->
 
-                                <input type="submit" class="btn btn-block" onclick="carregando('form')" value="Salvar" name="EditarDados">
+                                <input type="submit" class="btn btn-block btn-success" onclick="carregando('form')" value="Salvar" name="EditarDados">
                             </form>                            
                         </div>                        
                     </div>
