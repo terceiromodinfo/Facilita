@@ -2,6 +2,7 @@
 include '../Back-end/Funcoes.php';
 $relatorio = $_SESSION['Relatorio'];
 $matricula = $_SESSION['Matricula'];
+$sherk = base64_encode("Edição Ativa");
 ?>
 <!DOCTYPE html>
 <!--
@@ -23,7 +24,7 @@ Autor: Lucas Alberico de Sousa
 
     <body onload="mudaEstilo(<?php print count($relatorio[$matricula[0]]["Informações_do_Aluno"]["Informações_Disciplinares"]) ?>, <?php print count($matricula) ?>)">
         <!-- Barra de navegação do app -->
-        
+
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a class="navbar-brand" href="#">Gerador de Relatórios</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
@@ -36,32 +37,39 @@ Autor: Lucas Alberico de Sousa
                     </li> 
                     <li class="nav-item active">
                         <a class="nav-link" href="../Back-end/PedacoCodigoLista_Curso.php">(Modo_Desenvolverdor) <span class="sr-only">(Página atual)</span></a>
-                    </li> 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="Edit.php?Serk='<?php print base64_encode("Edição Ativa")?>'">Editar Informações <span class="sr-only">(Página atual)</span></a>
-                    </li> 
+                    </li>                     
                 </ul>
             </div>
         </nav>
-        
+        <a class="btn btn-default btn-block" href="<?php echo "Edit.php?Serk=$sherk"; ?>">Editar Informações</a>
         <!-- Fim da barra de navegação do app -->
-        
-        
+
+
         <?php for ($a = 0; $a < count($matricula); $a++) { ?>           
             <div class="container">
                 <div class="row">
                     <!--  -->
                     <!-- Começo do painel de de Progresso do Aluno -->
 
-                    <div class="col-md-12">
+                    <div class="col-md-12">   
                         <h1 class="titulo">Painel de Progresso do Aluno</h1>
                         <div class="col-md-12">                        
                             <!-- Informações do Aluno -->
                             <div class="col-md-12 BackgroundCBranco">
                                 <!-- Lado Esquerdo -->
                                 <div class="col-md-7">
-                                    <div class="col-md-5">
-                                        <img src="img/default.png">
+                                    <div class="col-md-5">                                        
+                                        <?php
+                                        if (isset($relatorio[$matricula[$a]]["Informações_do_Aluno"]["ImagemPerfil"])) {
+                                            ?>
+                                            <img  src="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["ImagemPerfil"]; ?>" class="img-fluid" alt="Responsive image">
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <img src="img/default.png">
+                                            <?php
+                                        }
+                                        ?>
                                     </div> 
                                     <div class="col-md-7">
                                         <label>
@@ -118,7 +126,17 @@ Autor: Lucas Alberico de Sousa
                                 </div>
                                 <!-- Lado Direito -->
                                 <div class="col-md-5">
-                                    <img  src="img/WINWORD_2018-06-25_15-04-58.png" class="img-fluid" alt="Responsive image">
+                                    <?php
+                                    if (isset($relatorio[$matricula[$a]]["Informações_do_Aluno"]["ImagemGrafico"])) {
+                                        ?>
+                                        <img  src="<?php print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["ImagemGrafico"]; ?>" class="img-fluid" alt="Responsive image">
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <img  src="img/WINWORD_2018-06-25_15-04-58.png" class="img-fluid" alt="Responsive image">
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
 
@@ -180,7 +198,7 @@ Autor: Lucas Alberico de Sousa
                                     <h1 class="LetraBranca">Progresso Geral</h1>                            
                                 </div>
                                 <div class="col-md-12 central">
-                                    
+
                                     <?php for ($c = 0; $c < count($relatorio[$matricula[$a]]["Progresso_Geral"]); $c++) { ?>
                                         <div class="col-md-12 BackgroundCinza centralTodo">
                                             <h1 class="LetraBranca"><?php print ($c + 1) . "º  " ?>Bimestre</h1>                            

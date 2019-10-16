@@ -300,9 +300,13 @@ if (isset($post['EditarDados'])) {
     $cq = $post['cq'];
     $pe = $post['pe'];
     $sd = $post['sd'];
-    $ec = $post['ec'];     
+    $ec = $post['ec']; 
+    $imagemGrafico = $_FILES['fotoGrafico'];
+    $ImagemPerfil = $_FILES['fotoPerfil'];
     
-    print $nome."<br>".$turma."<br>".$idade."<br>".$cidade."<br>".$repetente."<br>".$apNoCoselho."<br>".$atleta."<br>".$recebeAuxilio."<br>".$cq."<br>".$pe."<br>".$sd."<br>".$ec;
+    //print "<img src='$imagemGrafico'>";
+    //print $imagemGrafico."<br>".$ImagemPerfil."<br>";
+    print_r($ImagemPerfil);
     unset($post['EditarDados']);
 }
 if (isset($get['AddBimestre'])) {
@@ -318,6 +322,6 @@ if (isset($get['AddBimestre'])) {
         $_SESSION['Relatorio'][$matricula]['Progresso_Geral'] = $Progresso_Geral;
     }
 
-    unset($get['AddBimestre']);
+    unset($post['AddBimestre']);
     exit(header("location:../Front_end/Edit.php?Serk=".base64_encode("Edição Ativa").""));
 }

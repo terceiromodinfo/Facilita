@@ -41,4 +41,7 @@ function estilizando(um, dois, posicao) {
         obj.style.color = "Red";
     }
 }
- 
+function carregaImagem(){   
+    
+    document.getElementById("imgGrafi").src = document.getElementById("grafi").value;
+}

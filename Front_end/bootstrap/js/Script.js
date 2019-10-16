@@ -50,3 +50,4 @@ function buscarPorMatricula(matricula)
 $('#buscar2').click(function () {
     buscarPorMatricula($("#matricula").val())
 });
+
