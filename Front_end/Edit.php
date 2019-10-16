@@ -99,11 +99,11 @@ if (isset($get["Serk"]) && base64_decode($get["Serk"]) == "Edição Ativa") {
                                     <div class="col-sm-12">
                                         <div class="col-sm-12">
                                             <label>Link da imagem do Grafico:</label>
-                                        <input type="text" class="form-control input-group-lg chat-input"  name="imgGrafic" value="">
+                                        <input type="text" class="form-control input-group-lg chat-input"  name="imgGrafic" value="<?php if (isset($relatorio[$matricula[$a]]["Informações_do_Aluno"]["ImagemGrafico"])) {print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["ImagemGrafico"];} ?>">
                                         </div>
                                         <div class="col-sm-12">
                                             <label>Link da imagem do Perfil:</label>
-                                        <input type="text" class="form-control input-group-lg chat-input"  name="imgPerfil" value="">
+                                            <input type="text" class="form-control input-group-lg chat-input"  name="imgPerfil" value="<?php if (isset($relatorio[$matricula[$a]]["Informações_do_Aluno"]["ImagemGrafico"])) {print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["ImagemPerfil"];} ?>">
                                         </div>
                                     </div>
                                     
