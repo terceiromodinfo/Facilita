@@ -244,6 +244,8 @@ if (isset($get['alunos'])) {
                 $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["PE"] = ExisteParamNoArray("ArrayDeAlunos", "Pe", $a);
                 $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["SD"] = ExisteParamNoArray("ArrayDeAlunos", "Sd", $a);                                   
                 $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["EC"] = ExisteParamNoArray("ArrayDeAlunos", "Ec", $a);
+                $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["ImagemGrafico"]= "img/download (1).png";
+                $ArrayDeAluno[$ArrayDeAlunos[$a]['matricula']]["Informações_do_Aluno"]["ImagemPerfil"]= "img/default.png";
                 $contador = 0;
                 for ($c = 0; $c < count($ArraysDeDados2); $c++) {
                     if ($ArraysDeDados2[$c]["matricula"] === $ArrayDeAlunos[$a]['matricula']) {

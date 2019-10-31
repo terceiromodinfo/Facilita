@@ -66,7 +66,7 @@ Autor: Lucas Alberico de Sousa
                                             <?php
                                         } else {
                                             ?>
-                                            <img class="img-responsive" src="img/default.png">
+                                            <img class="img-responsive" src="">
                                             <?php
                                         }
                                         ?>
@@ -133,7 +133,7 @@ Autor: Lucas Alberico de Sousa
                                         <?php
                                     } else {
                                         ?>
-                                        <img  src="img/download (1).png" class="img-fluid" alt="Responsive image">
+                                        <img  src="" class="img-fluid" alt="Responsive image">
                                         <?php
                                     }
                                     ?>
