@@ -2,16 +2,18 @@
 session_start();
 
 /**
- * Funcão para usar o metodo post
+ * Função para usar o método post
  */
+
 function post() {
     $post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
     return $post;
 }
 
 /**
- * Funcão para usar o metodo get
+ * Função para usar o método get
  */
+
 function get() {
     $get = filter_input_array(INPUT_GET, FILTER_DEFAULT);
     return $get;
@@ -58,7 +60,7 @@ function getNomeCurso($param) {
 }
 
 /*
- * Exibe um botão que contem informações muito complexas, mas serve para deixar o codigo mais agradavel
+ * Exibe um botão que contem informações muito complexas, mas serve para deixar o código mais agradável
  */
 
 function superLinkGet($destino, $variavelGet, $arquivo, $parametroLoading, $palavraExibida, $class) {
@@ -68,8 +70,8 @@ function superLinkGet($destino, $variavelGet, $arquivo, $parametroLoading, $pala
 }
 
 /*
- * Retorna a arquitetura do Array do relatorio final. Não tem funcionalidade no codigo
- * apenas serve para o programdor ter uma ideia do desenho da arquitetura do array que recebe os dados 
+ * Retorna a arquitetura do Array do relatório final. Não tem funcionalidade no código
+ * apenas serve para o programador ter uma ideia do desenho da arquitetura do array que recebe os dados 
  */
 
 function arrayAluno() {
@@ -131,8 +133,9 @@ function ExisteParamNoArray($variavelGlobal, $valor, $numeros) {
     }
 }
 /*
- * Organiza os dados na variavel global correta para ser usada nos codigos
+ * Organiza os dados na variável global correta para ser usada nos códigos
  */
+
 function organizaDados($array) {
     end($array[0]);
     switch (key($array[0])) {
@@ -146,9 +149,11 @@ function organizaDados($array) {
             break;
     }
 }
+
 /*
- * Retorna aquantidade de ardivertencias que a matricula passada tem
+ * Retorna quantidade de advertências que a matricula passada tem
  */
+
 function getSD($matricula) {
     $Indiciplina = $_SESSION['ArrayDeDados4'];
     $quantidade = 0;
@@ -159,9 +164,12 @@ function getSD($matricula) {
     }
     return $quantidade;
 }
+
 /*
- * Retorna aquantidade de extra class que a matricula passada tem
+ * Retorna quantidade de extra class que a matricula passada tem
  */
+
+
 function getEC($matricula) {
     $ExtraClass = $_SESSION['ArrayDeDados3'];
     $quantidade = 0;
@@ -172,9 +180,11 @@ function getEC($matricula) {
     }
     return $quantidade;
 }
+
 /*
- * retorna um array com todas as informaçoes do progrsso do aluno
+ * retorna um array com todas as informações do progresso do aluno
  */
+
 function getProgressoGeral($info) {
     $resultDeInfo = array();
     $chaves = array(0 => "Bimestre_1", 1 => "Bimestre_2", 2 => "Bimestre_3", 3 => "Bimestre_4");
@@ -186,7 +196,7 @@ function getProgressoGeral($info) {
         for ($b = 0; $b < count($info); $b++) {
             $convertido = (double) $info[$b][$chaves[$a]];
             if (($convertido != 0) && $convertido < 7) {
-                //Aqui trabalharemos o codigo de informações do Progresso Geral
+                //Aqui trabalharemos o código de informações do Progresso Geral
                 $dicEmRecupe = $dicEmRecupe + 1;
                 $convertido2 = (double) $info[$b][$chaves2[$a]];
                 if ($convertido2 >= 7) {
@@ -204,9 +214,11 @@ function getProgressoGeral($info) {
     }
     return $resultDeInfo;
 }
+
 /*
- * Retorna um array com as infomações do alunos se o ano cabase hoje
+ * Retorna um array com as informações do alunos se o ano acaba-se hoje
  */
+
 function getFimAnoAgora($info) {
     $resultDeInfo = array();
     $resultDeInfoFinal["Aprovado"] = 0;
@@ -225,7 +237,7 @@ function getFimAnoAgora($info) {
                 $quantMedia = $quantMedia + 1;
             }
         }
-        //Entrega o resultado para ser avaliado para proximo codigo
+       //Entrega o resultado para ser avaliado para próximo código
         $resultDeInfo[$a]["media_somada"] = $media;
         $resultDeInfo[$a]["quantidade_media"] = $quantMedia;
         $resultDeInfo[$a]["id_diciplina"] = $info[$a]["Id_diciplina"];
@@ -233,7 +245,7 @@ function getFimAnoAgora($info) {
         $media = 0;
         $quantMedia = 0;
     }
-    //Mota o resultado
+    //Monta o resultado
     for ($c = 0; $c < count($resultDeInfo); $c++) {
         $result = ($resultDeInfo[$c]["media_somada"] / $resultDeInfo[$c]["quantidade_media"]);
         if ($result >= 7) {

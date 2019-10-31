@@ -1,34 +1,34 @@
 <?php
 
 include './Funcoes.php';
-//Funçãos atibuida e uma variavel para o uso do metodo POST e GET
+//Funções atribuída e uma variável para o uso do método POST e GET
 $post = post();
 $get = get();
 
 /*
- * codigo que pega as informaçoes do arquivo .csv, faz a conversão 
+ * código que pega as informações do arquivo .csv, faz a conversão 
  * para um Array
  * 
- * LerCsv é o nome dado ao botão, quando clicado mandarar em FORM via POST os CSV
+ * LerCsv é o nome dado ao botão, quando clicado mandara em FORM via POST os CSV
  * para ser convertido em ARRAY
  */
 
 if (isset($post['LerCsv'])) {
-    //Variavel Global
-    //Receberar o potencial de evasão
+    //Variável Global
+    //Recebera o potencial de evasão
     $_SESSION['ArrayDeDados'] = array();
-    //Receberar informações diciplinares
+    //Recebera informações disciplinares
     $_SESSION['ArrayDeDados2'] = array();
-    //Receberar informações de extra classe
+    //Recebera informações de extra classe
     $_SESSION['ArrayDeDados3'] = array();
-    //Receberar informações de indiciplinas
+    //Recebera informações de indisciplinas
     $_SESSION['ArrayDeDados4'] = array();
-    //Receberar Informações a ser exibida no relatorio
+    //Recebera Informações a ser exibida no relatorio
     $_SESSION['ArrayDeAlunos'] = array();
-    //Receberar os alunos do arquivos inseridos
+    //Recebera os alunos do arquivos inseridos
     $_SESSION['ArrayDeAlunosPesquisado'] = array();
 
-    //Variaveis exclusiva para uso somente dentro do IF
+    //Variáveis exclusiva para uso somente dentro do IF POST'LerCsv'
 
     $contador = 0;
     $ArraysDeDados = array();
@@ -37,7 +37,7 @@ if (isset($post['LerCsv'])) {
     $ArraysDeDados4 = array();
 
     /*
-     * Recebe os valores do formulario e passa pelos tratamentos de erros, depois para função,
+     * Recebe os valores do formulário e passa pelos tratamentos de erros, depois para função,
      * que converte para array
      * */
 
@@ -55,8 +55,8 @@ if (isset($post['LerCsv'])) {
 
 
     /*
-     * Aqui tratarar de erros como, arquivos vazio, ou
-     * de extenção diferente
+     * Aqui tratara de erros como, arquivos vazio, ou
+     * de extensão diferente
      */
 
 
@@ -114,9 +114,9 @@ if (isset($post['LerCsv'])) {
     $ArraysDeDados4 = csvtojson($arquivo4, ",");
 
     /*
-     * Organizando os arquivos, usando uma função para organizalos cada um 
-     * em sua variavel global adquadra, pois o layout da pagina não obriga o usuario 
-     * a selecionas os .CSV em forma organizada,
+     * Organizando os arquivos, usando uma função para organiza-los cada um 
+     * em sua variável global adequada, pois o layout da pagina não obriga o usuário 
+     * a selecionas os .CSV em forma organizada.
      */
 
     organizaDados($ArraysDeDados);
@@ -125,10 +125,10 @@ if (isset($post['LerCsv'])) {
     organizaDados($ArraysDeDados4);
 
     /*
-     * Aqui iremos organizar, o primeiro .CSV que está na variavel global "ArraysDeDados" nele esta todos alunos
-     * de todos cursos, como ele e a base principal de informções, e necessario verificar o segundo .CSV que esta
-     * no "ArraysDeDados2" que contem iformações apenas de um curso, o codigo ira indentificar qual é esse curso
-     * e armazenar somente as informações deste curso na variavel $ArrayDeAlunos.
+     * Aqui iremos organizar, o primeiro .CSV que está na variável global "ArraysDeDados" nele esta todos alunos
+     * de todos cursos, como ele e a base principal de informações, e necessário verificar o segundo .CSV que esta
+     * no "ArraysDeDados2" que contem informações apenas de um curso, o código ira identificar qual é esse curso
+     * e armazenar somente as informações deste curso na variável $ArrayDeAlunos.
      */
 
     $ArrayDeAlunos = null;
@@ -142,27 +142,14 @@ if (isset($post['LerCsv'])) {
         }
     }
 
-    //Guardando as informçoes em uma variavel global
+    //Guardando as informações em uma variável global
 
     $_SESSION['ArrayDeAlunos'] = $ArrayDeAlunos;
     $_SESSION['ArrayDeAlunosPesquisado'] = $ArrayDeAlunos;
 
+    
     /*
-      print "<pre>";
-      print_r($_SESSION['ArrayDeAlunos']);
-      print_r($_SESSION['ArrayDeAlunosPesquisado']);
-      //print_r($_SESSION['ArrayDeDados3']);;
-      //print_r($_SESSION['ArrayDeDados4']);
-      print "</pre>";
-     * 
-     */
-
-
-
-
-
-    /*
-     * Elimina todas as variaveis que não serão mais utilizada, pois serão reutilizadas em outros codigos
+     * Elimina todas as variáveis que não serão mais utilizada, pois serão reutilizadas em outros códigos
      */
 
     unset($post['LerCsv'], $ArrayDeAlunos, $ArraysDeDados, $ArraysDeDados2, $ArraysDeDados3, $ArraysDeDados4, $a, $contador, $arquivo, $arquivo2, $arquivo3, $arquivo4, $erro_code,
@@ -171,7 +158,7 @@ if (isset($post['LerCsv'])) {
 }
 
 /*
- * Excript para pesquisa da matricula 
+ * Script para pesquisa da matricula 
  * 
  * Retorna todos alunos se á matricula pesquisada vier em branco
  * Retorna todas informações do aluno se a matricula for valida
@@ -201,21 +188,22 @@ if (isset($post['matricula'])) {
 }
 
 /*
- * Organiza todas as informções para ser exibida no relatorio
+ * Organiza todas as informações para ser exibida no relatório
  */
 
 if (isset($get['alunos'])) {
      
-    //pega os valores guardados nas variaveis global
+    //pega os valores guardados nas variáveis global
     $ArrayDeAlunos = $_SESSION['ArrayDeAlunos'];
     $ArraysDeDados2 = $_SESSION['ArrayDeDados2'];
     
     /*
-     * Faz uma verificação se o usuario esta pedindo apenas o relatorio de um aluno ou todos do curso.
+     * Faz uma verificação se o usuário esta pedindo apenas o relatório de um aluno ou todos do curso.
      * Aqui ele recebera "TODOS" ou a matricula do aluno escolhido.
-     * Se ele pedir o relatorio "todos" sera passada para variavel todas as matriculas existente na turma,
+     * Se ele pedir o relatório "todos" será passada para variável todas as matriculas existente na turma,
      * caso não ele recebera a matricula enviado pelo GET
      */
+
     if (base64_decode($get['alunos']) === "todos") {
 
         for ($b = 0; $b < count($ArrayDeAlunos); $b++) {
@@ -226,20 +214,21 @@ if (isset($get['alunos'])) {
     }
 
     /*
-     * Aqui existirão duas variaveis parecidas "$ArrayDeAluno" e "$ArrayDeAlunos"
+     * Aqui existirão duas variáveis parecidas "$ArrayDeAluno" e "$ArrayDeAlunos"
      * $ArrayDeAlunos são todos alunos de uma turma
-     * Ja $ArrayDeAluno reberar de $ArrayDeAlunos, mas de forma organizada tudo pronto para ser
-     * passado para o relatorio final.
+     * Já $ArrayDeAluno recebera de $ArrayDeAlunos, mas de forma organizada tudo pronto para ser
+     * passado para o relatório final.
      * 
-     * O codigo verificara qual matricula existente em $ArrayDeAlunos e igual á matricula do aluno escolhido
-     * pelo usuario.
+     * O código verificara qual matricula existente em $ArrayDeAlunos e igual á matricula do aluno escolhido
+     * pelo usuário.
      * 
-     * A função chamada ExisteParamNoArray() e para ferificar se exite esses dados se não ouver ela retornara um valor "--"
-     * Primeiro parametro ("ArrayDeAlunos") é o nome da variavel global, segundo ("aluno") dado exitente na variavel global, 
+     * A função chamada ExisteParamNoArray() e para verificar se existe esses dados se não houver ela retornara um valor "--"
+     * Primeiro parâmetro ("ArrayDeAlunos") é o nome da variável global, segundo ("aluno") dado existente na variável global, 
      * terceiro ($a) posição do dados no global.
      * 
-     * À arquitetura do array pode ser entendida usando o seguinte codigo | print_r(arrayAluno()); |
+     * À arquitetura do array pode ser entendida usando o seguinte código | print_r(arrayAluno()); |
      */
+
     for ($a = 0; $a < count($ArrayDeAlunos); $a++) {
         for ($d = 0; $d < count($matricula); $d++) {
             if ($matricula[$d] === $ArrayDeAlunos[$a]['matricula']) {
@@ -312,8 +301,9 @@ if (isset($post['EditarDados'])) {
     $relatorio = $_SESSION['Relatorio'];
     
     /*
-     * Sera enserido as mudanças que o usuario fez na edição 
+     * Será inserido as mudanças que o usuário fez na edição 
      */
+
     for ($a = 0; $a < count($matricula); $a++) {
 
         $relatorio[$matricula[$a]]["Informações_do_Aluno"]["Nome"] = $post['nome'];
@@ -368,10 +358,12 @@ if (isset($post['EditarDados'])) {
     unset($post['EditarDados'], $relatorio, $a, $b, $c, $matricula, $diciplina);
     exit(header("location:../Front_end/Relatorio_Aluno.php"));
 }
+
 /*
- * Como o codigo exibe no relatorio final apenas as informações de bimestres que possua notas
- * Esse codigo adiciona um novo bimestre em branco para a edição
+ * Como o código exibe no relatório final apenas as informações de bimestres que possua notas
+ * Esse código adiciona um novo bimestre em branco para a edição
  */
+
 if (isset($get['AddBimestre'])) {
     $matricula = $get['AddBimestre'];
     $Progresso_Geral = $_SESSION['Relatorio'][$matricula]['Progresso_Geral'];

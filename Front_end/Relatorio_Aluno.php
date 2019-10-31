@@ -143,7 +143,7 @@ Autor: Lucas Alberico de Sousa
                             <div class="col-md-12">
                                 <table class="table table-bordered">
                                     <tr class="BackgroundAzul LetraBranca">
-                                        <th><h3>Diciplina</h3></th>
+                                        <th><h3>Disciplina</h3></th>
                                         <th><h3>B1</h3></th>
                                         <th><h3>R1</h3></th>
                                         <th><h3>M1</h3></th>
@@ -189,7 +189,7 @@ Autor: Lucas Alberico de Sousa
                         <!-- Fim do painel de de Progresso do Aluno -->
 
                         <!-- Começo do painel de de Progresso de Recuperção -->
-                        <h1 class="titulo">Progresso de Recuperção</h1>
+                        <h1 class="titulo">Progresso de Recuperação</h1>
                         <div class="col-md-12 BackgroundCinza">
 
                             <div class="col-md-1"></div>
@@ -215,7 +215,7 @@ Autor: Lucas Alberico de Sousa
                                                 </p>
 
                                             </div>
-                                            <h1>Diciplinas em Recuperação</h1>
+                                            <h1>Disciplinas em Recuperação</h1>
                                         </div>
                                         <div class="col-md-1 central"></div>
                                         <div class="col-md-5 central">
@@ -227,7 +227,7 @@ Autor: Lucas Alberico de Sousa
                                                     <?php print $relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Disciplina_Recuperada"] ?>/<?php print $relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Disciplina_em_Recuperações"] ?>
                                                 </p>
                                             </div>
-                                            <h1>Diciplinas Recuperadas</h1>
+                                            <h1>Disciplinas Recuperadas</h1>
                                         </div>
                                     <?php } ?>
 

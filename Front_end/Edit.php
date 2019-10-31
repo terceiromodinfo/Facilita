@@ -98,7 +98,7 @@ if (isset($get["Serk"]) && base64_decode($get["Serk"]) == "Edição Ativa") {
                                 <div class="col-sm-4">
                                     <div class="col-sm-12">
                                         <div class="col-sm-12">
-                                            <label>Link da imagem do Grafico:</label>
+                                            <label>Link da imagem do Gráfico:</label>
                                         <input type="text" class="form-control input-group-lg chat-input"  name="imgGrafic" value="<?php if (isset($relatorio[$matricula[$a]]["Informações_do_Aluno"]["ImagemGrafico"])) {print $relatorio[$matricula[$a]]["Informações_do_Aluno"]["ImagemGrafico"];} ?>">
                                         </div>
                                         <div class="col-sm-12">
@@ -114,7 +114,7 @@ if (isset($get["Serk"]) && base64_decode($get["Serk"]) == "Edição Ativa") {
                                 <div class="col-sm-12"><h1>Painel de Progresso do Aluno</h1></div>
                                 <table class="table table-responsive-lg">
                                     <tr class="BackgroundCinza LetraBranca">
-                                        <th><h3>Diciplina</h3></th>
+                                        <th><h3>Disciplina</h3></th>
                                         <th><h3>B1</h3></th>
                                         <th><h3>R1</h3></th>
                                         <th><h3>M1</h3></th>
@@ -160,7 +160,7 @@ if (isset($get["Serk"]) && base64_decode($get["Serk"]) == "Edição Ativa") {
 
                                 <!-- Painel de Porcentagens do Aluno -->
                                 <div class="col-sm-12">
-                                    <h1>Progresso de Recuperção</h1>
+                                    <h1>Progresso de Recuperação</h1>
                                     <?php if (count($relatorio[$matricula[$a]]['Progresso_Geral']) < 4) { ?>
                                         <a class="btn btn-secondary btn-block" href="../Back-end/Excript_Principal.php?AddBimestre=<?php print $matricula[$a] ?>">Adicionar Bimestre</a>                                  
                                     <?php } ?>
@@ -181,7 +181,7 @@ if (isset($get["Serk"]) && base64_decode($get["Serk"]) == "Edição Ativa") {
                                             <input type="text" class="form-control input-group-lg chat-input"  name="<?php print "DeR".$c ?>" value="<?php print abs(round($relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Disciplina_em_Recuperações"])) ?>">
                                         </div>
                                         <div class="col-sm-2">
-                                            <label>Todas as Disciplina Total</label>
+                                            <label>Todas as Disciplinas Totais</label>
                                             <input type="text" class="form-control input-group-lg chat-input"  name="<?php print "DT".$c ?>" value="<?php print abs(round($relatorio[$matricula[$a]]["Progresso_Geral"][$c]["Disciplina_Total"])) ?>">
                                         </div>
                                         <div class="col-sm-2">
@@ -234,7 +234,5 @@ if (isset($get["Serk"]) && base64_decode($get["Serk"]) == "Edição Ativa") {
         </html>    
         <?php
     }
-    //print "<pre>";
-    //print_r($matricula);
-    //print "<pre>";
+    
 }

@@ -42,8 +42,8 @@ Autor: Lucas Alberico de Sousa
         <div class="col-lg-4">
             <div class=""> 
                 <form id="form" action="../Back-end/Excript_Principal.php" method="POST" enctype="multipart/form-data">
-                    <label>Selecionar o arquivo potencial evasão, arquivo de informações diciplinares, arquivo
-                    de extra classe, arquivo de indiciplina.                  
+                    <label>Selecionar o arquivo potencial evasão, o arquivo de informações disciplinares, o arquivo
+                    de extra classe, o arquivo de indisciplina.                 
                     </label><br><br><br>
                     <div class="form-group">
                         <label>Selecionar a o arquivo</label>
